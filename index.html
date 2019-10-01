@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ruhrpott Ipsum | Blindtextgenerator ausm Pott</title>
+    <style>
+        html {
+            min-height: 100%;
+            background: linear-gradient(62deg, #ffd800, #efab00);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            font-family: monospace;
+            color: #3c3d47;
+        }
+        .brackmann {
+            width: 100%;
+            max-width: 80rem;
+            margin: 0 auto;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: .5rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            text-align: center;
+            margin: 3rem 0;
+            font-size: 1.5rem;
+        }
+        h2 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        label, input, button {
+            font-size: 1.125rem;
+            font-weight: bold;
+        }
+        .apparillo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .kluempken + .kluempken{
+            margin-top: .5rem;
+        }
+        input, button {
+            border-radius: 0;
+            -moz-appearance: none;
+            border: .125rem solid #da0;
+            background: transparent;
+            margin: 0 .5rem 0 0;
+            padding: .25rem;
+            color: #3c3d47;
+        }
+        label {
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        input[type=radio] {
+            padding: .5rem;
+        }
+        input:checked {
+            background: #3c3d47;
+        }
+        button {
+            padding: .25rem 1.75rem;
+            cursor: pointer;
+        }
+        p {
+            font-size: 1.125rem;
+        }
+        .babbel {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .text {
+            width: 100%;
+            max-height: 30rem;
+            overflow-y: auto;
+            padding: 1rem;
+            border: .125rem solid #da0;
+            background: transparent;
+            box-sizing: border-box;
+        }
+        .copy {
+            align-self: flex-start;
+        }
+        textarea {
+            height: 0;
+            width: 0;
+            font-size: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            overflow: hidden;
+        }
+        hr {
+            width: 100%;
+            border: .125rem solid #da0;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="brackmann">
+    <header class="pinorrek">
+        <h1>Ruhrpott Ipsum | Blindtextgenerator ausm Pott</h1>
+    </header>
+    <main class="apparillo">
+        <h2>Getz wählste erstma aus, wieviel Häppken Text Du haben willst:</h2>
+        <hr>
+        <div class="kluempken">
+            <label for="paragraphs"><input type="number" id="paragraphs" min="1" value="1" required>Absätzken</label>
+        </div>
+        <hr>
+        <h2>Dann suchste Dir noch aus, wie lang so en Text Ömmes werden soll:</h2>
+        <hr>
+        <div class="kluempken">
+            <label for="stoepsel"><input type="radio" id="stoepsel" name="textlength" value="s">Klein wie en Stöpsel</label>
+        </div>
+        <div class="kluempken">
+            <label for="wuchtbrumme"><input type="radio" id="wuchtbrumme" name="textlength" value="m">Mittelgroße Wuchtbrumme</label>
+        </div>
+        <div class="kluempken">
+            <label for="kawennzmann"><input type="radio" id="kawennzmann" name="textlength" value="l">En riesen Kawennzmann</label>
+        </div>
+        <hr>
+        <h2>Und getz klickste dat Knöppken, dann kriegste den ganzen Kokolores angezeicht:</h2>
+        <hr>
+        <div class="kluempken">
+            <button class="schisselameng">Hau raus getz!</button>
+        </div>
+        <hr>
+    </main>
+    <section class="babbel">
+        <button class="copy">Kopieren</button>
+        <div class="text"></div>
+    </section>
+</div>
+
+<script src="ruhrpott-ipsum.js"></script>
+<script>
+    let r = new RuhrpottIpsum('.text');
+    document.addEventListener('click', function (e) {
+        if (e.target.matches('.schisselameng')) {
+            let paragraphs = document.getElementById('paragraphs');
+            let textLength = document.querySelector('input[type=radio]:checked');
+            paragraphs = paragraphs.value;
+
+            if (textLength === null) {
+                textLength = 's';
+            } else {
+                textLength = textLength.value;
+            }
+            r.getText(textLength, paragraphs);
+        }
+        if (e.target.matches('.copy')) {
+            let textArea = document.createElement("textarea");
+            let babbel = document.querySelector('.babbel');
+            let text = document.querySelector('.textarea');
+            if (text) {
+                textArea.value = text.innerHTML;
+                babbel.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                babbel.removeChild(textArea);
+                e.target.innerHTML = 'Kopiert!';
+                setTimeout(function () {
+                    e.target.innerHTML = 'Kopieren';
+                }, 5000);
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
