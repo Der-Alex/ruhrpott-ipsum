@@ -31,6 +31,9 @@
             padding: .5rem;
             margin-bottom: 1rem;
         }
+        a {
+            color: #f00baa;
+        }
         h1 {
             text-align: center;
             margin: 0 0 3rem;
@@ -80,27 +83,6 @@
         p {
             font-size: 1.125rem;
         }
-        .babbel {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .text {
-            width: 100%;
-            max-height: 30rem;
-            overflow-y: auto;
-            padding: 1rem;
-            border: .125rem solid #da0;
-            background: transparent;
-            box-sizing: border-box;
-        }
-        .copy {
-            align-self: flex-start;
-        }
-        .logo-link {
-            max-width: 300px;
-            text-decoration: none;
-        }
         textarea {
             height: 0;
             width: 0;
@@ -128,6 +110,38 @@
             max-width: 300px;
             max-height: 70px;
             margin-top: 1rem;
+        }
+        .logo-link {
+            max-width: 300px;
+            text-decoration: none;
+        }
+        .apparillo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .kluempken + .kluempken{
+            margin-top: .5rem;
+        }
+        .babbel {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .text {
+            width: 100%;
+            max-height: 30rem;
+            overflow-y: auto;
+            padding: 1rem;
+            border: .125rem solid #da0;
+            background: transparent;
+            box-sizing: border-box;
+        }
+        .copy {
+            align-self: flex-start;
+        }
+        .untertage {
+            margin-top: 3rem;
         }
     </style>
 </head>
@@ -171,6 +185,13 @@
         <button class="copy">Kopieren</button>
         <div class="text"></div>
     </section>
+    <footer class="untertage">
+        <nav>
+            <a href="https://ruhrpott-ipsum.de">Home</a>
+            <a href="/datenschutz.html">Datenschutz</a>
+            <a href="/impressum.html">Impressum</a>
+        </nav>
+    </footer>
 </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
@@ -209,20 +230,12 @@
             r.getText(textLength, paragraphs);
         }
         if (e.target.matches('.copy')) {
-            let textArea = document.createElement("textarea");
-            let babbel = document.querySelector('.babbel');
             let text = document.querySelector('.textarea');
-            if (text) {
-                textArea.value = text.innerHTML;
-                babbel.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                babbel.removeChild(textArea);
-                e.target.innerHTML = 'Kopiert!';
-                setTimeout(function () {
-                    e.target.innerHTML = 'Kopieren';
-                }, 5000);
-            }
+            r.copyToClipboard(text.innerHTML);
+            e.target.innerHTML = 'Kopiert!';
+            setTimeout(function () {
+                e.target.innerHTML = 'Kopieren';
+            }, 5000);
         }
     });
 
