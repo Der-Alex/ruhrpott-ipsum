@@ -31,6 +31,9 @@
             padding: .5rem;
             margin-bottom: 1rem;
         }
+        a {
+            color: #f00baa;
+        }
         h1 {
             text-align: center;
             margin: 3rem 0;
@@ -43,14 +46,6 @@
         label, input, button {
             font-size: 1.125rem;
             font-weight: bold;
-        }
-        .apparillo {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .kluempken + .kluempken{
-            margin-top: .5rem;
         }
         input, button {
             border-radius: 0;
@@ -80,23 +75,6 @@
         p {
             font-size: 1.125rem;
         }
-        .babbel {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .text {
-            width: 100%;
-            max-height: 30rem;
-            overflow-y: auto;
-            padding: 1rem;
-            border: .125rem solid #da0;
-            background: transparent;
-            box-sizing: border-box;
-        }
-        .copy {
-            align-self: flex-start;
-        }
         textarea {
             height: 0;
             width: 0;
@@ -116,6 +94,31 @@
         #paragraphs {
             width: 100%;
             max-width: 6rem;
+        }
+        .apparillo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .kluempken + .kluempken{
+            margin-top: .5rem;
+        }
+        .babbel {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .text {
+            width: 100%;
+            max-height: 30rem;
+            overflow-y: auto;
+            padding: 1rem;
+            border: .125rem solid #da0;
+            background: transparent;
+            box-sizing: border-box;
+        }
+        .copy {
+            align-self: flex-start;
         }
     </style>
 </head>
@@ -154,6 +157,13 @@
         <button class="copy">Kopieren</button>
         <div class="text"></div>
     </section>
+    <footer class="untertage">
+        <nav>
+            <a href="https://ruhrpott-ipsum.de">Home</a>
+            <a href="/datenschutz.html">Datenschutz</a>
+            <a href="/impressum.html">Impressum</a>
+        </nav>
+    </footer>
 </div>
 
 <script src="ruhrpott-ipsum.js"></script>
