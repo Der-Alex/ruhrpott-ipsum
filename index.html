@@ -173,15 +173,11 @@
             r.getText(textLength, paragraphs);
         }
         if (e.target.matches('.copy')) {
-            let textArea = document.createElement("textarea");
-            let babbel = document.querySelector('.babbel');
             let text = document.querySelector('.textarea');
             if (text) {
-                textArea.value = text.innerHTML;
-                babbel.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                babbel.removeChild(textArea);
+								e.clipboardData.setData('text/html', text.innerHTML);
+								e.clipboardData.setData('text/plain', text.innerHTML);
+								document.execCommand('copy');
                 e.target.innerHTML = 'Kopiert!';
                 setTimeout(function () {
                     e.target.innerHTML = 'Kopieren';
