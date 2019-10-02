@@ -174,15 +174,11 @@
         }
         if (e.target.matches('.copy')) {
             let text = document.querySelector('.textarea');
-            if (text) {
-								e.clipboardData.setData('text/html', text.innerHTML);
-								e.clipboardData.setData('text/plain', text.innerHTML);
-								document.execCommand('copy');
-                e.target.innerHTML = 'Kopiert!';
-                setTimeout(function () {
-                    e.target.innerHTML = 'Kopieren';
-                }, 5000);
-            }
+            r.copyToClipboard(text.innerHTML);
+            e.target.innerHTML = 'Kopiert!';
+            setTimeout(function () {
+                e.target.innerHTML = 'Kopieren';
+            }, 5000);
         }
     });
 

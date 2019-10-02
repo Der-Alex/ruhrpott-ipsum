@@ -92,7 +92,7 @@ class RuhrpottIpsum {
             textIndex = Math.floor(Math.random() * this.text.length ) - 1;
             paragraph.push(this.text[textIndex]);
         }
-        return paragraph.join(' ');
+        return paragraph.join(' ').trim();
     }
 
     getTextLength(textLength) {
@@ -113,5 +113,16 @@ class RuhrpottIpsum {
         }
 
         return amount;
+    }
+
+    copyToClipboard(text) {
+        function listener(e) {
+            e.clipboardData.setData('text/html', text);
+            e.clipboardData.setData('text/plain', text);
+            e.preventDefault();
+        }
+        document.addEventListener('copy', listener);
+        document.execCommand('copy');
+        document.removeEventListener('copy', listener);
     }
 }
