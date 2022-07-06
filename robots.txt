@@ -1,14 +1,3 @@
-User-agent: *
-Disallow: /datenschutz.html
-Disallow: /impressum.html
-
-# www.robotstxt.org/
-# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
-
-# Slow down bots
-User-agent: *
-Crawl-delay: 10
-
 # Disallow: SEOkicks-Robot
 User-agent: SEOkicks-Robot
 Disallow: /
@@ -222,3 +211,8 @@ Disallow: /
 # http://warebay.com/bot.html
 User-agent: WBSearchBot
 Disallow: /
+
+User-agent: *
+Disallow: /datenschutz.html
+Disallow: /impressum.html
+Crawl-delay: 10
